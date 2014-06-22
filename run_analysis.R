@@ -13,8 +13,6 @@ subject <- rbind(subject_train, subject_test)
 activityLabels <- read.table ("activity_labels.txt",comment.char = "")
 
 features <- read.table ("./features.txt", comment.char = "")
-#meanIndex <- grep("mean\\(\\)", features[,2])
-#stdIndex <- grep("std\\(\\)", features[,2])
 
 allIndex <- grep("mean\\(\\)|std\\(\\)", features[,2])
 rawNames <- features[allIndex, 2]
