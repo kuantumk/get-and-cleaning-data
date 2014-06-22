@@ -1,5 +1,7 @@
-## The following R script produce the MeanTidyData.txt from the X_train/test, y_train/test and subject_train/test data
-## This script is also submitted as run_analysis.R in the same repository.
+### The following R script produce the MeanTidyData.txt from the X_train/test, y_train/test and subject_train/test data
+###This script is also submitted as run_analysis.R in the same repository.
+
+<!-- -->
 
 x_train <- read.table ("./train/X_train.txt",comment.char = "",colClasses="numeric")
 y_train <- read.table ("./train/y_train.txt",comment.char = "",colClasses="numeric")
@@ -16,8 +18,6 @@ subject <- rbind(subject_train, subject_test)
 activityLabels <- read.table ("activity_labels.txt",comment.char = "")
 
 features <- read.table ("./features.txt", comment.char = "")
-#meanIndex <- grep("mean\\(\\)", features[,2])
-#stdIndex <- grep("std\\(\\)", features[,2])
 
 allIndex <- grep("mean\\(\\)|std\\(\\)", features[,2])
 rawNames <- features[allIndex, 2]
