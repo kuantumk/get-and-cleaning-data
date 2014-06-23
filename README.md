@@ -1,9 +1,12 @@
-### The following R script produce the MeanTidyData.txt from the X_train/test, y_train/test and subject_train/test data
-###This script is also submitted as run_analysis.R in the same repository.
+### here is a explanation of how the following script works...
 
+
+---------------------------
 x_train <- read.table ("./train/X_train.txt",comment.char = "",colClasses="numeric")
 y_train <- read.table ("./train/y_train.txt",comment.char = "",colClasses="numeric")
 subject_train <- read.table ("./train/subject_train.txt",comment.char = "",colClasses="numeric")
+
+
 
 x_test <- read.table ("./test/X_test.txt",comment.char = "",colClasses="numeric")
 y_test <- read.table ("./test/y_test.txt",comment.char = "",colClasses="numeric")
