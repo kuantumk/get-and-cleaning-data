@@ -1,4 +1,6 @@
-### here is a explanation of how the following script works...
+###Download the necessary files and unzip them. Make sure to maintain the original directory structure and put the run_analysis.R in the same folder as the features.txt file.
+
+### Here is a explanation of how the following script works...
 
 
 ```{r}
