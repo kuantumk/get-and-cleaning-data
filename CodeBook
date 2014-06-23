@@ -1,1 +1,42 @@
-## code book
+###Code Book for the R script
+
+x_train, y_train, subject_train, x_test, y_test and subject_test have the same meaning from the oringinal data file. The run_analysis.R script reads in these data sets by the read.table() function.
+
+x, y, subject are variables that represent the combinations of the training sets and test sets for measured data, activity and subject id, respectively. The train data set and test data set are combined by the rbind() function.
+
+activityLabels is a data frame that stores the activity types, e.g. laying, walking, etc, from the orignial file.
+
+allIndex: indices produce by the grep() function that only takes "mean()" and "std()" names from the feature.
+
+Once the indices that point to the "mean" and "standard deviation" are obtained, the x data frame is subsetted and combined with the activityNames and subject data frame.
+
+data is the large combined data frame with 10299 rows and 68 columns. Each columns contains subject ID, activity types and all measure variables. Each row contains the measured data from one subject on one activity. 
+
+| subject | activityNames | tBodyAcc.mean.X | ... | ... | fBodyBodyGyroJerkMag.std |
+|---------|---------------|-----------------|-----|-----|--------------------------|
+| 1       | STANDING      | 0.2885845       |     |     | -0.9906975               |
+| 1       | STANDING      | 0.2784188       |     |     | -0.9963995               |
+| 1       | STANDING      | 0.2796531       |     |     | -0.9951274               |
+| 1       | STANDING      | 0.2791739       |     |     | -0.9952369               |
+
+After the above data frame is obtained, it is molten by the melt() function that transformed the data frame into a 679734 rows and 4 columns data frame. 
+
+| subject | activityNames | variable        | value     |
+|---------|---------------|-----------------|-----------|
+| 1       | STANDING      | tBodyAcc.mean.X | 0.2885845 |
+| 1       | STANDING      | tBodyAcc.mean.X | 0.2784188 |
+| 1       | STANDING      | tBodyAcc.mean.X | 0.2796531 |
+| 1       | STANDING      | tBodyAcc.mean.X | 0.2791739 |
+
+And finally, by the dcast() function, a combination grouped by subject and activity is generated and the mean is obtained for all measured variables.
+
+| subject | activityNames | tBodyAcc.mean.X | ... | ... | fBodyBodyGyroJerkMag.std |
+|---------|---------------|-----------------|-----|-----|--------------------------|
+| 1       | LAYING        | 0.2215982       |     |     | -0.9326607               |
+| 1       | SITTING       | 0.2612376       |     |     | -0.9870496               |
+| 1       | STANDING      | 0.2789176       |     |     | -0.9946711               |
+| 1       | WALKING       | 0.2773308       |     |     | -0.3816019               |
+
+
+
+
