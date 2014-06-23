@@ -53,3 +53,4 @@ d <- melt(data, id.vars=c("subject", "activityNames"))
 dgroup <- dcast(data = d, subject + activityNames ~ variable, fun = mean)
 
 dgroup
+```
